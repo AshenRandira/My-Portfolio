@@ -1,0 +1,94 @@
+Create a highly interactive, modern personal portfolio website for Ashen Randira, a software engineering undergraduate and full-stack developer.
+
+Important: this must feel original and playful, not like a generic AI portfolio, dashboard, SaaS landing page, or a copy of any existing portfolio. Use a dark refined visual style, but do not make the whole page black. Use deep charcoal / ink backgrounds with subtle blue, violet, electric lime, and warm amber highlights. Keep it clean, premium, and slightly experimental.
+
+Design direction:
+- Full-screen desktop-first portfolio with responsive mobile layout.
+- Strong typography with oversized editorial headings, but keep body text minimal.
+- Use asymmetrical composition, overlapping elements, custom lines, subtle grain/noise, and visual depth.
+- Avoid repetitive rounded cards, huge gradients, excessive glassmorphism, and generic icon rows.
+- This is a developer portfolio, so it should feel technically capable but still personal and creative.
+
+Main interaction idea:
+Create a soft custom cursor made of a small glowing dot with a trailing ring of tiny dots. The cursor reacts differently when hovering over interactive elements:
+- On buttons, it expands and shows labels like “OPEN”, “VIEW”, or “SCROLL”.
+- On project previews, it becomes a draggable/hovering circle.
+- Text links slightly shift and reveal a colored underline.
+- Project images gently zoom, tilt, and reveal metadata on hover.
+- Include smooth scrolling and subtle parallax layers, but keep motion elegant and not distracting.
+- Respect reduced-motion preferences.
+
+Page structure:
+
+1. Hero / Opening screen
+- A very minimal, striking opening view.
+- Main text:
+  “ASHEN
+   RANDIRA”
+- Small introduction:
+  “Software engineering student building thoughtful digital experiences.”
+- A short rotating line under it:
+  “Full-stack developer / Problem solver / Curious builder”
+- Include a small interactive “Enter the work →” control rather than a standard navbar-heavy layout.
+- Add a visual abstract composition on the right or behind the text: layered glowing shapes, floating code fragments, grid lines, and a soft cursor-reactive field. Do not use stock photos.
+
+2. Navigation
+- Thin, minimal top navigation with:
+  Work / About / Journey / Contact
+- On hover, each item has a unique microinteraction, such as letters spacing apart or a tiny colored beam sliding beneath it.
+- Add a small availability indicator: “Currently building & learning”.
+
+3. Selected work section
+- Heading: “Things I’ve brought to life.”
+- Do not show normal equal-sized project cards.
+- Create a vertically staggered project gallery where each project has a large image mockup or abstract interface preview, project number, role, stack, and short outcome.
+- Projects:
+  01 — ServeSync
+  “Restaurant service management platform”
+  “Backend development: authentication, role-based access control, and auditing.”
+  Tech: Spring Boot, Java, MongoDB
+
+  02 — CineScope
+  “A cinematic movie and TV discovery platform”
+  “A polished discovery experience built around film, collections, and personal watchlists.”
+  Tech: React, TypeScript, Tailwind CSS, Firebase, TMDB
+
+  03 — Project Management Tool
+  “A focused collaboration workspace for team projects”
+  “Projects, tasks, assignments, status tracking, and discussion in one place.”
+  Tech: React, Node.js, Express, MongoDB
+
+  04 — Four Seasons Tree
+  “Interactive computer graphics experience”
+  “A C++ OpenGL project that brings four changing seasons into one scene.”
+  Tech: C++, OpenGL, FreeGLUT
+
+- Each project should have a different visual treatment and accent color.
+- Hovering a project should reveal an oversized project title, a “View case study” cursor state, and a preview transition.
+
+4. About section
+- Make this feel like a visual “profile scan”, not a standard about card.
+- Include a large statement:
+  “I enjoy turning complicated ideas into experiences people can actually use.”
+- Add small details in scattered layout:
+  Based in Sri Lanka
+  University of Moratuwa
+  Software Engineering Undergraduate
+  Interested in full-stack development and polished product experiences
+- Add subtle interactive floating labels that move slightly as the mouse moves.
+
+5. Journey / skills section
+- Use an unconventional horizontal timeline or interactive orbit rather than progress bars.
+- Include: React, TypeScript, Java, Spring Boot, Node.js, Express, MongoDB, Firebase, Git, Tailwind CSS.
+- Make each skill a small interactive node that expands with a one-line note when hovered.
+- Include milestones: “Building”, “Learning”, “Collaborating”, “Experimenting”.
+
+6. Contact / ending screen
+- Big ending text:
+  “Have an idea worth building?”
+- Include email, LinkedIn, and GitHub as prominent interactive links.
+- Add a minimal “Back to top” interaction.
+- Footer text:
+  “Designed and built by Ashen Randira.”
+
+Use realistic placeholder project preview images that look like actual product UI screens, not random abstract photos. The final result should look polished enough to impress recruiters, but still feel like a real developer’s portfolio rather than an agency website.
