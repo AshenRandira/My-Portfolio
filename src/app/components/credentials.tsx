@@ -1,7 +1,6 @@
 import { useRef } from "react";
 import { motion, useInView } from "motion/react";
 import { useHover } from "./cursor";
-import resumeUrl from "../../imports/Ashen_Randira_Resume.pdf";
 
 const EDUCATION = [
   {
@@ -218,8 +217,8 @@ function Volunteering() {
 
         {/* Résumé download */}
         <motion.a
-          href={resumeUrl}
-          download
+          href="/Ashen_Randira_Resume.pdf"
+          download="Ashen_Randira_Resume.pdf"
           {...useHover({ variant: "button", label: "OPEN" })}
           initial={{ opacity: 0, y: 12 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}

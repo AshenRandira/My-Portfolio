@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { useHover } from "./cursor";
-import resumeUrl from "../../imports/Ashen_Randira_Resume.pdf";
 
 const ITEMS = [
   { label: "Work", href: "#work", accent: "var(--blue)" },
@@ -100,8 +99,8 @@ export function Nav() {
           </div>
 
           <a
-            href={resumeUrl}
-            download
+            href="/Ashen_Randira_Resume.pdf"
+            download="Ashen_Randira_Resume.pdf"
             {...useHover({ variant: "button", label: "OPEN" })}
             className="rounded-full px-4 py-2 font-mono text-[11px] tracking-[0.12em] transition-transform duration-300 hover:scale-105"
             style={{ background: "var(--lime)", color: "#0b0c10" }}
