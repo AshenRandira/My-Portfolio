@@ -6,22 +6,22 @@ import { useHover } from "./cursor";
 const LINKS = [
   {
     label: "Email",
-    value: "ashenrandira22al@gmail.com",
-    href: "mailto:ashenrandira22al@gmail.com",
+    value: "randiraofficial@gmail.com",
+    href: "mailto:randiraofficial@gmail.com",
     c: "var(--amber)",
     Icon: Mail,
   },
   {
     label: "LinkedIn",
-    value: "/in/ashenrandira",
+    value: "/in/ashen-randira",
     href: "https://www.linkedin.com/in/ashen-randira-11626a30a/",
     c: "var(--blue)",
     Icon: Linkedin,
   },
   {
     label: "GitHub",
-    value: "@ashenrandira",
-    href: "https://github.com/ashenrandira",
+    value: "AshenRandira",
+    href: "https://github.com/AshenRandira",
     c: "var(--violet)",
     Icon: Github,
   },

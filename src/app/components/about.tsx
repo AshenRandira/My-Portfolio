@@ -1,18 +1,18 @@
 import { useId, useRef, useState } from "react";
 import { motion, useInView, useReducedMotion } from "motion/react";
 import { useCursor } from "./cursor";
-import profileImg from "../../imports/image.png";
+import profileImg from "../../imports/image.jpg";
 
 const BIO =
-  "I'm Ashen — a software engineering undergraduate at the University of Moratuwa, Sri Lanka. I build full-stack applications with a focus on backend systems, developer tooling, and interfaces that feel considered. When I'm not coding, I'm photographing moments, designing graphics, or leading community initiatives through Rotaract.";
+  "I'm Ashen - a software engineering undergraduate at the University of Moratuwa, Sri Lanka. I build full-stack applications and REST APIs with a focus on backend systems and scalable architecture. Outside of code, I photograph moments, design graphics, and lead community initiatives through Rotaract.";
 
 type Trait = { label: string; desc: string };
 const TRAITS: Trait[] = [
   { label: "Detail-oriented", desc: "I sweat the small stuff — naming, edge cases, spacing." },
   { label: "Systems thinker", desc: "I see how pieces connect before I start building." },
   { label: "Curious by default", desc: "If I don't know something, I figure it out." },
-  { label: "Community-driven", desc: "Building things is better when done with others." },
-  { label: "Problem solver", desc: "I break hard problems into small, solvable pieces." },
+  { label: "Community-driven", desc: "Led teams in Rotaract, Sasnaka & disaster response." },
+  { label: "Problem solver", desc: "Top 30 in GenZipher, semi-finalist in Devthon & Codemania." },
 ];
 
 const BEYOND = [
@@ -23,13 +23,15 @@ const BEYOND = [
   "Technical writing",
   "Photography",
   "Graphic design",
+  "Mathematics tutoring",
+  "MUN facilitation",
 ];
 
 const CURRENTLY = [
-  { text: "Building full-stack applications", c: "var(--lime)" },
-  { text: "Exploring DevOps & containerization", c: "var(--blue)" },
-  { text: "Leading Rotaract international service", c: "var(--violet)" },
-  { text: "Experimenting with computer graphics", c: "var(--amber)" },
+  { text: "Building PulseDock — self-hosted uptime monitor", c: "var(--lime)" },
+  { text: "Exploring DevOps & containerization with Docker", c: "var(--blue)" },
+  { text: "Co-directing Rotaract International Service Avenue", c: "var(--violet)" },
+  { text: "Teaching mathematics at Sasnaka Sansada Foundation", c: "var(--amber)" },
 ];
 
 const TERMINAL = [
@@ -37,20 +39,21 @@ const TERMINAL = [
   { t: "  Ashen Randira", color: "fg" },
   { t: "$ cat profile.json", color: "lime", gap: true },
   { t: "  {", color: "muted" },
-  { t: '    "role"     : "SE Undergraduate",', color: "blue" },
+  { t: '    "role"     : "IT Undergraduate",', color: "blue" },
   { t: '    "uni"      : "University of Moratuwa",', color: "blue" },
-  { t: '    "location" : "Sri Lanka \u{1F1F1}\u{1F1F0}",', color: "blue" },
+  { t: '    "cgpa"     : "3.58 / 4.00",', color: "blue" },
+  { t: '    "location" : "Colombo, Sri Lanka \u{1F1F1}\u{1F1F0}",', color: "blue" },
   { t: '    "status"   : "open to opportunities"', color: "blue" },
   { t: "  }", color: "muted" },
   { t: "$ ls interests/", color: "lime", gap: true },
-  { t: "  photography/ design/ rotaract/ opensrc/", color: "muted" },
+  { t: "  photography/ design/ rotaract/ hackathons/", color: "muted" },
 ];
 
 const STATS = [
   { label: "University", value: "UoM '27" },
-  { label: "Location", value: "Sri Lanka" },
+  { label: "CGPA", value: "3.58 / 4" },
   { label: "Focus", value: "Full-Stack" },
-  { label: "Also into", value: "Photography" },
+  { label: "Location", value: "Colombo, LK" },
 ];
 
 function termColor(c: string) {
@@ -113,6 +116,49 @@ function TraitChip({
             {trait.desc}
           </p>
         </motion.div>
+      )}
+    </div>
+  );
+}
+
+/** Profile photo with a graceful fallback while the real image is being added */
+function ProfilePhoto({ src }: { src: string }) {
+  const [broken, setBroken] = useState(false);
+  return (
+    <div
+      className="mb-5 overflow-hidden rounded-2xl border"
+      style={{ borderColor: "rgba(255,255,255,0.1)", aspectRatio: "4/3" }}
+    >
+      {!broken ? (
+        <img
+          src={src}
+          alt="Ashen Randira"
+          onError={() => setBroken(true)}
+          className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+        />
+      ) : (
+        <div
+          className="flex h-full w-full flex-col items-center justify-center gap-3"
+          style={{
+            background:
+              "radial-gradient(ellipse at 40% 35%, rgba(230,255,92,0.08), rgba(11,12,16,0.95))",
+          }}
+        >
+          <span
+            className="flex h-20 w-20 items-center justify-center rounded-full font-display text-3xl font-bold"
+            style={{
+              background: "rgba(230,255,92,0.12)",
+              border: "1.5px solid var(--lime)",
+              color: "var(--lime)",
+              boxShadow: "0 0 32px -8px var(--lime)",
+            }}
+          >
+            AR
+          </span>
+          <span className="font-mono text-[11px] tracking-[0.14em] text-muted-foreground">
+            photo coming soon
+          </span>
+        </div>
       )}
     </div>
   );
@@ -273,16 +319,7 @@ export function About() {
             className="self-start"
           >
             {/* Profile photo */}
-            <div
-              className="mb-5 overflow-hidden rounded-2xl border"
-              style={{ borderColor: "rgba(255,255,255,0.1)", aspectRatio: "4/3" }}
-            >
-              <img
-                src={profileImg}
-                alt="Ashen Randira"
-                className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
-              />
-            </div>
+            <ProfilePhoto src={profileImg} />
 
             {/* Terminal card */}
             <div

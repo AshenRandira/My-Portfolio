@@ -11,7 +11,6 @@ type Category = {
   nodes: Node[];
 };
 
-/* Skills grouped by discipline, each with a proficiency level (1–5). */
 const CATEGORIES: Category[] = [
   {
     title: "Frontend",
@@ -21,6 +20,7 @@ const CATEGORIES: Category[] = [
     nodes: [
       { name: "React", note: "Component-driven UIs & state management", level: 5 },
       { name: "TypeScript", note: "Type-safe, scalable codebases", level: 4 },
+      { name: "Next.js", note: "Full-stack React with SSR & file routing", level: 3 },
       { name: "Tailwind CSS", note: "Utility-first rapid styling", level: 5 },
       { name: "HTML / CSS", note: "Semantic, accessible fundamentals", level: 5 },
     ],
@@ -32,9 +32,10 @@ const CATEGORIES: Category[] = [
     blurb: "APIs, auth, and business logic that hold up.",
     nodes: [
       { name: "Java", note: "OOP, system design & algorithms", level: 4 },
-      { name: "Spring Boot", note: "Enterprise REST APIs & auth", level: 4 },
-      { name: "Node.js", note: "Event-driven server-side JS", level: 4 },
-      { name: "Express.js", note: "Minimal routing & middleware", level: 4 },
+      { name: "Spring Boot", note: "Enterprise REST APIs & JWT auth", level: 4 },
+      { name: "NestJS", note: "Modular Node.js backend framework", level: 3 },
+      { name: "Node.js", note: "Event-driven server-side JS", level: 3 },
+      { name: "C / C++", note: "Systems, embedded & graphics programming", level: 3 },
       { name: "Python", note: "Scripting, data & prototypes", level: 3 },
     ],
   },
@@ -44,9 +45,10 @@ const CATEGORIES: Category[] = [
     Icon: Database,
     blurb: "Modeling data so it scales cleanly.",
     nodes: [
+      { name: "MySQL", note: "Relational schema design & queries", level: 5 },
+      { name: "PostgreSQL", note: "Advanced relational & JSONB support", level: 3 },
       { name: "MongoDB", note: "Flexible document modeling", level: 4 },
-      { name: "MySQL", note: "Relational schema design & queries", level: 4 },
-      { name: "Firebase", note: "Auth, Firestore & hosting", level: 3 },
+      { name: "Firebase / Firestore", note: "Auth, Firestore & Cloud Functions", level: 4 },
     ],
   },
   {
@@ -55,11 +57,11 @@ const CATEGORIES: Category[] = [
     Icon: Wrench,
     blurb: "Shipping and automating with confidence.",
     nodes: [
-      { name: "Docker", note: "Containerisation & orchestration", level: 4 },
       { name: "Git & GitHub", note: "Version control & code review", level: 5 },
-      { name: "CI/CD", note: "Automated build & deploy pipelines", level: 3 },
-      { name: "Linux", note: "Shell scripting & system ops", level: 4 },
+      { name: "Docker", note: "Containerisation & compose orchestration", level: 4 },
       { name: "Postman", note: "API testing & debugging", level: 4 },
+      { name: "Maven", note: "Java project build & dependency management", level: 4 },
+      { name: "Linux", note: "Shell scripting & system ops", level: 3 },
     ],
   },
   {
@@ -77,8 +79,9 @@ const CATEGORIES: Category[] = [
 
 const STATS = [
   { value: "5", label: "Disciplines" },
-  { value: "20+", label: "Technologies" },
-  { value: "6", label: "Shipped projects" },
+  { value: "22+", label: "Technologies" },
+  { value: "5", label: "Shipped projects" },
+  { value: "3.58", label: "CGPA" },
 ];
 
 /* A single skill tile inside the detail panel. */

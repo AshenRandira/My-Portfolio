@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { useHover } from "./cursor";
-import resumeUrl from "../../imports/Profile__2_.pdf";
+import resumeUrl from "../../imports/Ashen_Randira_Resume.pdf";
 
 const ITEMS = [
   { label: "Work", href: "#work", accent: "var(--blue)" },

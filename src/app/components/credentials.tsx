@@ -1,43 +1,50 @@
 import { useRef } from "react";
 import { motion, useInView } from "motion/react";
 import { useHover } from "./cursor";
-import resumeUrl from "../../imports/Profile__2_.pdf";
+import resumeUrl from "../../imports/Ashen_Randira_Resume.pdf";
 
 const EDUCATION = [
   {
     school: "University of Moratuwa",
     degree: "B.Sc. (Hons) in Information Technology",
-    period: "Mar 2024 — 2028",
+    period: "2024 — 2027",
+    note: "CGPA: 3.58 / 4.00",
     c: "var(--lime)",
   },
   {
     school: "Poramadulla Central College",
-    degree: "Secondary Education",
-    period: "2013 — 2021",
+    degree: "G.C.E. Advanced Level — Physical Science Stream",
+    period: "2019 — 2022",
+    note: "Z-Score: 1.6076",
     c: "var(--blue)",
   },
 ];
 
 const ACHIEVEMENTS = [
-  "University Category Flyer Competition — Certificate of Achievement",
-  "Best Performing Photography Pillar Member",
-  "MoraXtreme 10.0 — Certificate of Participation",
-  "SpiritX 2025 — Xcelerate Stage 1 Participation",
+  "Spirit of Service Award — Premio Formalita '25, Rotaract Club UoM",
+  "Active Membership Award — Premio Formalita '25, Rotaract Club UoM",
+  "Semi-Finalists — Devthon 3.0, 2026 (National web dev competition, Leo Club UoM)",
+  "Semi-Finalists — Codemania, 2026 (Island-wide inter-university datathon, IEEE SLTC)",
+  "Top 30 — GenZipher 1.0, 2026 (CTF & Hackathon, UCSC)",
+  "Best Performing Photography Pillar Member — FIT Moments · Mora Lenz",
 ];
 
 const CERTS = [
-  "Java & PHP Course",
-  "Python for Beginners",
-  "Web Design for Beginners",
-  "Graphic Design with Canva",
-  "Information Technology",
+  "Network Technician Career Path — Cisco Networking Academy",
+  "Introduction to Agent Skills — Anthropic",
+  "Getting Started with Docker — Simplilearn",
+  "Web Development — SoloLearn",
 ];
 
 const VOLUNTEER = [
-  "Ganitha Saviya Co-Coordinator — Nuwara Eliya",
-  "Co-Chairperson, SLRMUN 2025",
-  "Co-Chairperson, UN Days 2024",
-  "Sasnaka Sansada Foundation Volunteer",
+  "Co-Director, International Service Avenue — Rotaract Club UoM (2025)",
+  "Co-Chairperson, SLRMUN '25 — Rotaract Club UoM",
+  "Co-Chairperson, UN Days '24 — Rotaract Club UoM",
+  "Social Media Admin — Sasnaka Sansada Foundation, Profiling & Corporate Affairs (2025–Present)",
+  "Project Coordinator & Mathematics Teacher — Sasnaka Sansada Foundation (2023–Present)",
+  "Design Committee — FINNC '25, IEEE IES Student Branch Chapter UoM (2025)",
+  "Call Centre & Data Entry Volunteer — Disaster Management Centre Sri Lanka, Cyclone Ditwah (2025)",
+  "Senior Prefect — Poramadulla Central College (2019–2021)",
 ];
 
 function useReveal() {
@@ -102,6 +109,11 @@ function Education() {
               <p className="mt-2 font-mono text-[12px] tracking-[0.08em] text-muted-foreground">
                 {e.period}
               </p>
+              {e.note && (
+                <p className="mt-2 font-mono text-[11px] tracking-[0.08em]" style={{ color: e.c }}>
+                  {e.note}
+                </p>
+              )}
             </motion.div>
           ))}
         </div>
