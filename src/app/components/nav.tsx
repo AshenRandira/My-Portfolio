@@ -99,7 +99,7 @@ export function Nav() {
           </div>
 
           <a
-            href="/Ashen_Randira_Resume.pdf"
+            href={`${import.meta.env.BASE_URL}Ashen_Randira_Resume.pdf`}
             download="Ashen_Randira_Resume.pdf"
             {...useHover({ variant: "button", label: "OPEN" })}
             className="rounded-full px-4 py-2 font-mono text-[11px] tracking-[0.12em] transition-transform duration-300 hover:scale-105"

@@ -217,7 +217,7 @@ function Volunteering() {
 
         {/* Résumé download */}
         <motion.a
-          href="/Ashen_Randira_Resume.pdf"
+          href={`${import.meta.env.BASE_URL}Ashen_Randira_Resume.pdf`}
           download="Ashen_Randira_Resume.pdf"
           {...useHover({ variant: "button", label: "OPEN" })}
           initial={{ opacity: 0, y: 12 }}
