@@ -56,8 +56,7 @@
 
 @media (min-width: 1024px) {
   :root {
-    /* Compact desktop density: preserves readability without browser zoom. */
-    --font-size: 14px;
+    --font-size: 16px;
   }
 }
 
@@ -153,12 +152,22 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-body);
+    font-family: var(--font-body), "Segoe UI", Arial, sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.5;
     -webkit-font-smoothing: antialiased;
   }
 
   h1, h2, h3, h4 {
     font-family: var(--font-display);
+  }
+
+  p, li, label, input, textarea, button {
+    line-height: 1.5;
+  }
+
+  p, li {
+    font-size: 1.0625rem;
   }
 
   ::selection {

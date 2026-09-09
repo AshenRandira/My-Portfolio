@@ -201,7 +201,7 @@ export function Hero() {
     <section
       id="top"
       ref={ref}
-      className="relative flex min-h-screen items-center overflow-hidden px-6 pt-28 md:px-10"
+      className="relative flex min-h-screen items-center overflow-hidden px-6 pt-16 md:px-10"
     >
       {/* Grid lines */}
       <div
@@ -245,7 +245,7 @@ export function Hero() {
       </Parallax>
 
       {/* Skill orbit — right side */}
-      <div className="absolute right-[2%] top-1/2 hidden -translate-y-1/2 lg:block xl:right-[6%]">
+      <div className="absolute right-[8%] top-1/2 hidden -translate-y-1/2 lg:block xl:right-[10%]">
         <SkillOrbit reduced={!!reduced} />
       </div>
 
@@ -265,31 +265,26 @@ export function Hero() {
 
       {/* Content */}
       <div className="relative z-10 max-w-3xl">
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.3 }}
-          className="mb-6 font-mono text-[12px] tracking-[0.24em] text-muted-foreground"
-        >
-          SOFTWARE ENGINEER · PORTFOLIO ’26
-        </motion.p>
-
         <TypeName reduced={!!reduced} />
 
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.7 }}
-          className="mt-8 max-w-md text-[15px] leading-relaxed text-muted-foreground"
+          className="mt-2 max-w-2xl text-[14px] leading-relaxed text-muted-foreground"
+          style={{ fontSize: "1.15rem", lineHeight: 1.55 }}
         >
           Full-stack developer building dependable web applications, developer tools, and deliberate interfaces.
         </motion.p>
 
         {/* Rotating role line */}
-        <div className="mt-4 flex h-6 items-center font-mono text-[13px]">
+        <div
+          className="mt-2 flex h-6 items-center font-mono text-[12px]"
+          style={{ fontSize: "0.9rem", lineHeight: 1.35 }}
+        >
           <span className="sr-only">Full-stack developer</span>
           <div aria-hidden="true" className="flex items-center">
-            <span className="mr-2 text-muted-foreground">{"›"}</span>
+            <span className="mr-3 text-muted-foreground">{"›"}</span>
             <div className="relative h-6 w-[20ch] overflow-hidden">
               <AnimatePresence mode="wait" initial={false}>
               <motion.span
@@ -312,13 +307,13 @@ export function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.9 }}
-          className="mt-10 flex flex-wrap items-center gap-4"
+          className="mt-3 flex flex-wrap items-center gap-4"
         >
           <a
             href="#work"
             {...useHover({ variant: "button", label: "VIEW" })}
-            className="inline-flex min-h-12 items-center rounded-full px-6 font-mono text-[12px] tracking-[0.12em] transition-transform duration-300 hover:scale-105"
-            style={{ background: "var(--lime)", color: "#0b0c10" }}
+            className="inline-flex min-h-12 items-center rounded-full px-6 font-mono text-[11px] tracking-[0.12em] transition-transform duration-300 hover:scale-105"
+            style={{ background: "var(--lime)", color: "#0b0c10", fontSize: "0.68rem" }}
           >
             View projects →
           </a>
@@ -326,8 +321,8 @@ export function Hero() {
           <a
             href="#contact"
             {...useHover({ variant: "link", label: "TALK" })}
-            className="inline-flex min-h-12 items-center rounded-full border px-6 font-mono text-[12px] tracking-[0.12em] text-foreground transition-colors duration-300 hover:border-[var(--lime)] hover:text-[var(--lime)]"
-            style={{ borderColor: "var(--border)" }}
+            className="inline-flex min-h-12 items-center rounded-full border px-6 font-mono text-[11px] tracking-[0.12em] text-foreground transition-colors duration-300 hover:border-[var(--lime)] hover:text-[var(--lime)]"
+            style={{ borderColor: "var(--border)", fontSize: "0.68rem" }}
           >
             Let&apos;s talk
           </a>
@@ -339,7 +334,8 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.7, delay: 1.1 }}
-          className="group mt-8 inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.12em] text-muted-foreground transition-colors hover:text-foreground"
+          className="group mt-5 inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.12em] text-muted-foreground transition-colors hover:text-foreground"
+          style={{ fontSize: "0.68rem" }}
         >
           <motion.span
             className="text-lg"

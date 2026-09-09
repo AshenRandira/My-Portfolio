@@ -12,7 +12,7 @@ type Role = {
 
 const ROLES: Role[] = [
   {
-    org: "Rotaract Club — University of Moratuwa",
+    org: "Rotaract Club - University of Moratuwa",
     title: "Co-Director, International Service Avenue",
     period: "2025",
     note: "Led initiatives connecting the club with global community and humanitarian causes.",
@@ -37,15 +37,15 @@ const ROLES: Role[] = [
   },
   {
     org: "Sasnaka Sansada Foundation",
-    title: "Social Media (LinkedIn) Administrator — Profiling & Corporate Affairs",
-    period: "2025 — Present",
+    title: "Social Media (LinkedIn) Administrator - Profiling & Corporate Affairs",
+    period: "2025 - Present",
     c: "var(--lime)",
-    tag: "VOLUNTEER",
+    tag: "LEADERSHIP",
   },
   {
     org: "Sasnaka Sansada Foundation",
     title: "Project Coordinator & Mathematics Teacher",
-    period: "2023 — Present",
+    period: "2023 - Present",
     c: "var(--lime)",
     tag: "VOLUNTEER",
   },
@@ -75,7 +75,7 @@ const ROLES: Role[] = [
   {
     org: "Poramadulla Central College",
     title: "Senior Prefect",
-    period: "2019 — 2021",
+    period: "2019 - 2021",
     c: "var(--amber)",
     tag: "LEADERSHIP",
   },
@@ -92,7 +92,7 @@ export function Experience() {
         {/* Centred header */}
         <div className="mb-24 text-center">
           <p className="mb-5 font-mono text-[13px] tracking-[0.24em] text-muted-foreground">
-            (04) — THE LEADERSHIP TRAIL
+            (04) - THE LEADERSHIP TRAIL
           </p>
           <h2
             className="mx-auto font-display"

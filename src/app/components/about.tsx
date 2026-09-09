@@ -4,7 +4,7 @@ import { useCursor } from "./cursor";
 import profileImg from "../../imports/image.jpg";
 
 const BIO =
-  "I'm Ashen - a software engineering undergraduate at the University of Moratuwa, Sri Lanka. I build full-stack applications and REST APIs with a focus on backend systems and scalable architecture. Outside of code, I photograph moments, design graphics, and lead community initiatives through Rotaract.";
+  "A motivated undergraduate specializing in Full-Stack and Backend Development, with hands-on experience across React, Spring Boot, NestJS, and cloud-integrated platforms. Passionate about building scalable web applications and REST APIs, with a strong foundation in databases and system design. Proven ability to lead and collaborate through active roles in university clubs, hackathons, and community service. Committed to continuous learning and delivering practical, real-world software solutions.";
 
 type Trait = { label: string; desc: string };
 const TRAITS: Trait[] = [
@@ -51,7 +51,6 @@ const TERMINAL = [
 
 const STATS = [
   { label: "University", value: "UoM '27" },
-  { label: "CGPA", value: "3.58 / 4" },
   { label: "Focus", value: "Full-Stack" },
   { label: "Location", value: "Colombo, LK" },
 ];
@@ -231,7 +230,7 @@ export function About() {
               initial={{ opacity: 0, y: 12 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.65 }}
-              className="mt-8 max-w-xl text-[17px] leading-relaxed text-muted-foreground"
+              className="mt-8 max-w-4xl text-[17px] leading-relaxed text-muted-foreground"
             >
               {BIO}
             </motion.p>

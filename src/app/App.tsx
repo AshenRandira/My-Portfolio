@@ -31,7 +31,10 @@ export default function App() {
 
   return (
     <CursorProvider>
-      <div className="grain relative min-h-screen w-full overflow-x-hidden text-foreground font-body">
+      <div
+        className="grain relative min-h-screen overflow-x-hidden text-foreground font-body"
+        style={{ zoom: 0.8 }}
+      >
         <Galaxy />
         <Nav />
         <main className="relative z-10">

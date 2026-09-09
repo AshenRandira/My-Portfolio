@@ -47,9 +47,9 @@ export function Nav() {
       transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
       className="fixed inset-x-0 top-0 z-50"
     >
-      <div className="mx-auto max-w-[1200px] px-4 pt-3 md:px-6 md:pt-4">
+      <div className="mx-auto max-w-[1200px] px-4 pt-2 md:px-5 md:pt-3">
       <div
-        className="flex items-center justify-between rounded-full px-5 py-3 transition-all duration-500 md:px-6"
+        className="flex items-center justify-between rounded-full px-4 py-2 transition-all duration-500 md:px-5"
         style={{
           backgroundColor: scrolled ? "rgba(14,15,20,0.85)" : "rgba(14,15,20,0.45)",
           backdropFilter: "blur(14px)",
@@ -62,10 +62,10 @@ export function Nav() {
           href="#top"
           {...useHover({ variant: "link" })}
           className="flex items-center gap-2 font-mono tracking-[0.18em] text-foreground"
-          style={{ fontSize: "15px" }}
+          style={{ fontSize: "12px" }}
         >
           <span
-            className="flex h-7 w-7 items-center justify-center rounded-full text-[13px]"
+            className="flex h-6 w-6 items-center justify-center rounded-full text-[11px]"
             style={{ background: "var(--lime)", color: "#0b0c10" }}
           >
             A
@@ -74,14 +74,14 @@ export function Nav() {
         </a>
 
         {/* Center links */}
-        <nav className="hidden items-center gap-6 md:flex lg:gap-8">
+        <nav className="hidden items-center gap-5 md:flex lg:gap-6">
           {ITEMS.map((item) => (
             <NavLink key={item.label} {...item} active={active === item.href.replace("#", "")} />
           ))}
         </nav>
 
         {/* Availability + resume */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
           <div className="hidden items-center gap-2 lg:flex">
             <span className="relative flex h-2 w-2">
               <span
@@ -102,7 +102,7 @@ export function Nav() {
             href={`${import.meta.env.BASE_URL}Ashen_Randira_Resume.pdf`}
             download="Ashen_Randira_Resume.pdf"
             {...useHover({ variant: "button", label: "OPEN" })}
-            className="rounded-full px-4 py-2 font-mono text-[11px] tracking-[0.12em] transition-transform duration-300 hover:scale-105"
+            className="rounded-full px-3 py-1.5 font-mono text-[10px] tracking-[0.1em] transition-transform duration-300 hover:scale-105"
             style={{ background: "var(--lime)", color: "#0b0c10" }}
           >
             Résumé ↓
@@ -111,7 +111,7 @@ export function Nav() {
       </div>
 
       {/* Mobile links */}
-      <nav className="mt-2 flex items-center justify-center gap-5 md:hidden">
+      <nav className="mt-1 flex items-center justify-center gap-4 md:hidden">
         {ITEMS.map((item) => (
           <NavLink key={item.label} {...item} active={active === item.href.replace("#", "")} />
         ))}
@@ -147,7 +147,7 @@ function NavLink({
         hoverIntent.onMouseLeave();
       }}
       aria-current={active ? "page" : undefined}
-      className="group relative flex items-center gap-1.5 py-1 font-mono text-[12px] tracking-[0.1em] transition-colors duration-300"
+      className="group relative flex items-center gap-1 py-0.5 font-mono text-[10px] tracking-[0.08em] transition-colors duration-300"
       style={{ color: lit ? accent : "var(--foreground)" }}
     >
       {active && (

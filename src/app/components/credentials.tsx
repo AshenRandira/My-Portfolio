@@ -6,43 +6,43 @@ const EDUCATION = [
   {
     school: "University of Moratuwa",
     degree: "B.Sc. (Hons) in Information Technology",
-    period: "2024 — 2027",
-    note: "CGPA: 3.58 / 4.00",
+    period: "2024 - Present",
     c: "var(--lime)",
   },
   {
     school: "Poramadulla Central College",
-    degree: "G.C.E. Advanced Level — Physical Science Stream",
-    period: "2019 — 2022",
+    degree: "G.C.E. Advanced Level - Physical Science Stream",
+    period: "2019 - 2022",
     note: "Z-Score: 1.6076",
     c: "var(--blue)",
   },
 ];
 
 const ACHIEVEMENTS = [
-  "Spirit of Service Award — Premio Formalita '25, Rotaract Club UoM",
-  "Active Membership Award — Premio Formalita '25, Rotaract Club UoM",
-  "Semi-Finalists — Devthon 3.0, 2026 (National web dev competition, Leo Club UoM)",
-  "Semi-Finalists — Codemania, 2026 (Island-wide inter-university datathon, IEEE SLTC)",
-  "Top 30 — GenZipher 1.0, 2026 (CTF & Hackathon, UCSC)",
-  "Best Performing Photography Pillar Member — FIT Moments · Mora Lenz",
+  "Finalists - CodeRally 7.0, 2026 (24-hour national hackathon, IEEE Computer Society Student Branch, IT)",
+  "Spirit of Service Award - Premio Formalita '25, Rotaract Club UoM",
+  "Active Membership Award - Premio Formalita '25, Rotaract Club UoM",
+  "Semi-Finalists - Devthon 3.0, 2026 (National web dev competition, Leo Club UoM)",
+  "Semi-Finalists - Codemania, 2026 (Island-wide inter-university datathon, IEEE SLTC)",
+  "Top 30 - GenZipher 1.0, 2026 (CTF & Hackathon, UCSC)",
+  "Best Performing Photography Pillar Member - FIT Moments · Mora Lenz",
 ];
 
 const CERTS = [
-  "Network Technician Career Path — Cisco Networking Academy",
-  "Introduction to Agent Skills — Anthropic",
-  "Getting Started with Docker — Simplilearn",
-  "Web Development — SoloLearn",
+  "Network Technician Career Path - Cisco Networking Academy",
+  "Introduction to Agent Skills - Anthropic",
+  "Getting Started with Docker - Simplilearn",
+  "Web Development - SoloLearn",
 ];
 
 const VOLUNTEER = [
-  "Co-Director, International Service Avenue — Rotaract Club UoM (2025)",
-  "Co-Chairperson, SLRMUN '25 — Rotaract Club UoM",
-  "Co-Chairperson, UN Days '24 — Rotaract Club UoM",
+  "Co-Director, International Service Avenue - Rotaract Club UoM (2025)",
+  "Co-Chairperson, SLRMUN '25 - Rotaract Club UoM",
+  "Co-Chairperson, UN Days '24 - Rotaract Club UoM",
   "Social Media Admin — Sasnaka Sansada Foundation, Profiling & Corporate Affairs (2025–Present)",
   "Project Coordinator & Mathematics Teacher — Sasnaka Sansada Foundation (2023–Present)",
-  "Design Committee — FINNC '25, IEEE IES Student Branch Chapter UoM (2025)",
-  "Call Centre & Data Entry Volunteer — Disaster Management Centre Sri Lanka, Cyclone Ditwah (2025)",
+  "Design Committee - FINNC '25, IEEE IES Student Branch Chapter UoM (2025)",
+  "Call Centre & Data Entry Volunteer - Disaster Management Centre Sri Lanka, Cyclone Ditwah (2025)",
   "Senior Prefect — Poramadulla Central College (2019–2021)",
 ];
 
@@ -64,7 +64,7 @@ function SectionHeading({
   return (
     <div className="mb-14 text-center">
       <p className="mb-5 font-mono text-[13px] tracking-[0.24em] text-muted-foreground">
-        {index} — {eyebrow}
+        {index} - {eyebrow}
       </p>
       <h2
         className="mx-auto font-display"
@@ -183,7 +183,7 @@ function Volunteering() {
   return (
     <section ref={ref} className="relative px-6 py-24 md:px-10">
       <div className="mx-auto max-w-[1400px]">
-        <SectionHeading index="(08)" eyebrow="VOLUNTEERING & SERVICE" title="Giving back." />
+        <SectionHeading index="(08)" eyebrow="LEADERSHIP & VOLUNTEERING" title="Leading through service." />
         <div className="grid gap-4 md:grid-cols-2">
           {VOLUNTEER.map((v, i) => (
             <motion.div

@@ -37,6 +37,7 @@ const CATEGORIES: Category[] = [
       { name: "Node.js", note: "Event-driven server-side JS", level: 3 },
       { name: "C / C++", note: "Systems, embedded & graphics programming", level: 3 },
       { name: "Python", note: "Scripting, data & prototypes", level: 3 },
+      { name: "PHP", note: "Server-side web development", level: 2 },
     ],
   },
   {
@@ -49,6 +50,7 @@ const CATEGORIES: Category[] = [
       { name: "PostgreSQL", note: "Advanced relational & JSONB support", level: 3 },
       { name: "MongoDB", note: "Flexible document modeling", level: 4 },
       { name: "Firebase / Firestore", note: "Auth, Firestore & Cloud Functions", level: 4 },
+      { name: "MS SQL", note: "Relational data and queries", level: 2 },
     ],
   },
   {
@@ -81,7 +83,6 @@ const STATS = [
   { value: "5", label: "Disciplines" },
   { value: "22+", label: "Technologies" },
   { value: "5", label: "Shipped projects" },
-  { value: "3.58", label: "CGPA" },
 ];
 
 /* A single skill tile inside the detail panel. */
@@ -101,15 +102,6 @@ function SkillTile({ node, accent, index }: { node: Node; accent: string; index:
         >
           {node.name}
         </span>
-        <span className="flex shrink-0 gap-1">
-          {Array.from({ length: 5 }).map((_, i) => (
-            <span
-              key={i}
-              className="h-1.5 w-1.5 rounded-full"
-              style={{ background: i < node.level ? accent : "rgba(255,255,255,0.14)" }}
-            />
-          ))}
-        </span>
       </div>
       <p className="font-mono text-[11px] leading-relaxed text-muted-foreground">{node.note}</p>
     </motion.div>
@@ -128,7 +120,7 @@ export function Journey() {
         {/* Header — centred */}
         <div className="mb-14 text-center">
           <p className="mb-5 font-mono text-[13px] tracking-[0.24em] text-muted-foreground">
-            (03) — TECH STACK
+            (03) - TECH STACK
           </p>
           <h2
             className="mx-auto font-display"

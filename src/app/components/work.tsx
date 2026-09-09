@@ -191,7 +191,7 @@ export function Work() {
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="mb-5 font-mono text-[12px] tracking-[0.24em] text-muted-foreground">
-              (01) — ALL PROJECTS · DRAG OR PRESS ← → TO NAVIGATE
+              (01) - ALL PROJECTS · DRAG OR PRESS ← → TO NAVIGATE
             </p>
             <h2
               className="font-display"

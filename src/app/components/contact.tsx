@@ -53,7 +53,7 @@ export function Contact() {
 
       <div className="relative z-10 mx-auto flex w-full max-w-[1400px] flex-1 flex-col justify-center">
         <p className="mb-8 font-mono text-[12px] tracking-[0.24em] text-muted-foreground">
-          (09) — LET&apos;S TALK
+          (09) - LET&apos;S TALK
         </p>
 
         <h2
