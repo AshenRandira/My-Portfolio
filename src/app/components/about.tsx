@@ -41,7 +41,6 @@ const TERMINAL = [
   { t: "  {", color: "muted" },
   { t: '    "role"     : "IT Undergraduate",', color: "blue" },
   { t: '    "uni"      : "University of Moratuwa",', color: "blue" },
-  { t: '    "cgpa"     : "3.58 / 4.00",', color: "blue" },
   { t: '    "location" : "Colombo, Sri Lanka \u{1F1F1}\u{1F1F0}",', color: "blue" },
   { t: '    "status"   : "open to opportunities"', color: "blue" },
   { t: "  }", color: "muted" },
