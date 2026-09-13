@@ -10,73 +10,19 @@ function Bar({ w, c, o = 1 }: { w: string; c?: string; o?: number }) {
   );
 }
 
+import serveSyncImg from '../../imports/ServeSync.png';
+import cineScopeImg from '../../imports/Cinescope.png';
+import pulseDockImg from '../../imports/PulseDock.png';
+import agroSenseImg from '../../imports/Agrosense.png';
+
 /* 01 — ServeSync: backend / admin dashboard with audit rows */
 export function ServeSyncMock({ accent }: { accent: string }) {
-  return (
-    <div className="flex h-full w-full gap-3 bg-[#0e0f15] p-4 font-mono">
-      <div className="flex w-1/4 flex-col gap-2 border-r border-white/5 pr-3">
-        <div className="mb-1 h-3 w-3 rounded" style={{ background: accent }} />
-        {["Orders", "Staff", "Roles", "Audit", "Menu"].map((s, i) => (
-          <div
-            key={s}
-            className="rounded px-1.5 py-1 text-[8px]"
-            style={{
-              color: i === 3 ? accent : "var(--muted-foreground)",
-              background: i === 3 ? "rgba(255,255,255,0.05)" : "transparent",
-            }}
-          >
-            {s}
-          </div>
-        ))}
-      </div>
-      <div className="flex flex-1 flex-col gap-2.5">
-        <div className="flex items-center justify-between">
-          <Bar w="40%" c={accent} />
-          <div className="flex gap-1.5">
-            <span className="rounded px-1.5 py-0.5 text-[7px]" style={{ color: accent, border: `1px solid ${accent}` }}>ADMIN</span>
-          </div>
-        </div>
-        {[92, 78, 84, 66, 88, 71].map((w, i) => (
-          <div key={i} className="flex items-center gap-2 rounded bg-white/[0.03] px-2 py-1.5">
-            <div className="h-1.5 w-1.5 rounded-full" style={{ background: i % 2 ? "var(--muted-foreground)" : accent }} />
-            <Bar w={`${w * 0.5}%`} o={0.5} />
-            <span className="ml-auto text-[7px] text-muted-foreground">2:0{i}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
+  return <img src={serveSyncImg} alt="ServeSync" className="h-full w-full object-cover" />;
 }
 
 /* 02 — CineScope: cinematic discovery grid + hero poster */
 export function CineScopeMock({ accent }: { accent: string }) {
-  return (
-    <div className="flex h-full w-full flex-col gap-3 bg-[#0d0b14] p-4">
-      <div
-        className="relative h-1/2 w-full overflow-hidden rounded-lg"
-        style={{ background: `linear-gradient(120deg, ${accent}, transparent 70%), #17141f` }}
-      >
-        <div className="absolute bottom-2 left-3 space-y-1.5">
-          <Bar w="90px" c="#fff" o={0.9} />
-          <Bar w="60px" o={0.4} />
-        </div>
-        <span className="absolute right-3 top-3 rounded-full px-2 py-0.5 font-mono text-[7px]" style={{ background: accent, color: "#0b0c10" }}>▶ WATCH</span>
-      </div>
-      <div className="grid grid-cols-4 gap-2">
-        {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => (
-          <div
-            key={i}
-            className="aspect-[2/3] rounded-md"
-            style={{
-              background: i === 2 ? accent : "#1b1826",
-              opacity: i === 2 ? 0.8 : 1,
-              border: "1px solid rgba(255,255,255,0.04)",
-            }}
-          />
-        ))}
-      </div>
-    </div>
-  );
+  return <img src={cineScopeImg} alt="CineScope" className="h-full w-full object-cover" />;
 }
 
 /* 03 — Project Management Tool: kanban board */
@@ -115,43 +61,7 @@ export function KanbanMock({ accent }: { accent: string }) {
 
 /* PulseDock: container monitoring dashboard with live sparkline */
 export function PulseDockMock({ accent }: { accent: string }) {
-  const pts = [12, 20, 14, 26, 18, 30, 22, 34, 28, 40, 30, 46];
-  const path = pts
-    .map((p, i) => `${(i / (pts.length - 1)) * 100},${50 - p}`)
-    .join(" ");
-  return (
-    <div className="flex h-full w-full flex-col gap-3 bg-[#0a0f14] p-4 font-mono">
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <div className="h-2.5 w-2.5 rounded-sm" style={{ background: accent }} />
-          <span className="text-[9px] text-foreground/80">pulsedock · monitor</span>
-        </div>
-        <span className="text-[7px]" style={{ color: accent }}>● LIVE</span>
-      </div>
-      <div className="grid grid-cols-3 gap-2">
-        {[["CPU", "38%"], ["MEM", "1.2G"], ["NET", "44ms"]].map(([k, v]) => (
-          <div key={k} className="rounded bg-white/[0.03] p-2">
-            <p className="text-[7px] text-muted-foreground">{k}</p>
-            <p className="text-[11px]" style={{ color: accent }}>{v}</p>
-          </div>
-        ))}
-      </div>
-      <div className="relative flex-1 rounded bg-white/[0.02] p-2">
-        <svg viewBox="0 0 100 50" preserveAspectRatio="none" className="h-full w-full">
-          <polyline points={path} fill="none" stroke={accent} strokeWidth="1.5" vectorEffect="non-scaling-stroke" />
-        </svg>
-      </div>
-      <div className="space-y-1.5">
-        {["api-gateway", "worker-01"].map((c, i) => (
-          <div key={c} className="flex items-center gap-2 rounded bg-white/[0.03] px-2 py-1">
-            <div className="h-1.5 w-1.5 rounded-full" style={{ background: i ? "var(--amber)" : accent }} />
-            <span className="text-[8px] text-foreground/70">{c}</span>
-            <span className="ml-auto text-[7px] text-muted-foreground">{i ? "restarting" : "healthy"}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
+  return <img src={pulseDockImg} alt="PulseDock" className="h-full w-full object-cover" />;
 }
 
 /* Dockerized Ecommerce Store: storefront grid + cart */
@@ -181,35 +91,7 @@ export function EcommerceMock({ accent }: { accent: string }) {
 
 /* AgroSense AI: agriculture sensor dashboard with AI insight */
 export function AgroSenseMock({ accent }: { accent: string }) {
-  return (
-    <div className="flex h-full w-full gap-3 bg-[#0a120c] p-4 font-mono">
-      <div className="flex w-1/3 flex-col gap-2">
-        <span className="text-[8px]" style={{ color: accent }}>AgroSense AI</span>
-        {/* soil moisture gauge */}
-        <div className="relative mt-1 flex aspect-square items-center justify-center rounded-full" style={{ background: `conic-gradient(${accent} 68%, rgba(255,255,255,0.06) 0)` }}>
-          <div className="flex h-3/4 w-3/4 flex-col items-center justify-center rounded-full bg-[#0a120c]">
-            <span className="text-[11px]" style={{ color: accent }}>68%</span>
-            <span className="text-[6px] text-muted-foreground">SOIL</span>
-          </div>
-        </div>
-      </div>
-      <div className="flex flex-1 flex-col gap-2">
-        <div className="grid grid-cols-2 gap-2">
-          {[["Temp", "27°C"], ["Humidity", "74%"], ["pH", "6.4"], ["Light", "820lx"]].map(([k, v]) => (
-            <div key={k} className="rounded bg-white/[0.03] px-2 py-1.5">
-              <p className="text-[6px] text-muted-foreground">{k}</p>
-              <p className="text-[9px] text-foreground/80">{v}</p>
-            </div>
-          ))}
-        </div>
-        <div className="flex-1 rounded p-2" style={{ border: `1px solid ${accent}`, background: "rgba(255,255,255,0.02)" }}>
-          <p className="mb-1 text-[7px]" style={{ color: accent }}>✦ AI INSIGHT</p>
-          <Bar w="90%" o={0.4} />
-          <div className="mt-1.5"><Bar w="65%" o={0.3} /></div>
-        </div>
-      </div>
-    </div>
-  );
+  return <img src={agroSenseImg} alt="AgroSense" className="h-full w-full object-cover" />;
 }
 
 /* 04 — Four Seasons Tree: OpenGL scene with a tree across seasons */

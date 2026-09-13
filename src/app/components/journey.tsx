@@ -1,6 +1,65 @@
 import { useRef, useState } from "react";
 import { motion, AnimatePresence, useInView } from "motion/react";
 import { Code2, Server, Database, Wrench, Palette } from "lucide-react";
+import {
+  SiReact,
+  SiTypescript,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiHtml5,
+  SiSpringboot,
+  SiNestjs,
+  SiNodedotjs,
+  SiCplusplus,
+  SiPython,
+  SiPhp,
+  SiMysql,
+  SiPostgresql,
+  SiMongodb,
+  SiFirebase,
+  SiMicrosoftsqlserver,
+  SiGithub,
+  SiDocker,
+  SiPostman,
+  SiApachemaven,
+  SiLinux,
+  SiFigma,
+  SiCanvas,
+  SiOpengl,
+  SiSqlite,
+} from "react-icons/si";
+import { FaJava } from "react-icons/fa6";
+import type { IconType } from "react-icons";
+
+type SkillIcon = { Icon: IconType; color: string };
+
+const SKILL_ICONS: Record<string, SkillIcon> = {
+  "React":              { Icon: SiReact,              color: "#61DAFB" },
+  "TypeScript":         { Icon: SiTypescript,         color: "#3178C6" },
+  "Next.js":            { Icon: SiNextdotjs,          color: "#ffffff" },
+  "Tailwind CSS":       { Icon: SiTailwindcss,        color: "#06B6D4" },
+  "HTML / CSS":         { Icon: SiHtml5,              color: "#E34F26" },
+  "Java":               { Icon: FaJava,               color: "#F89820" },
+  "Spring Boot":        { Icon: SiSpringboot,         color: "#6DB33F" },
+  "NestJS":             { Icon: SiNestjs,             color: "#E0234E" },
+  "Node.js":            { Icon: SiNodedotjs,          color: "#339933" },
+  "C / C++":            { Icon: SiCplusplus,          color: "#00599C" },
+  "Python":             { Icon: SiPython,             color: "#3776AB" },
+  "PHP":                { Icon: SiPhp,                color: "#777BB4" },
+  "MySQL":              { Icon: SiMysql,              color: "#4479A1" },
+  "PostgreSQL":         { Icon: SiPostgresql,         color: "#4169E1" },
+  "MongoDB":            { Icon: SiMongodb,            color: "#47A248" },
+  "Firebase / Firestore": { Icon: SiFirebase,         color: "#FFCA28" },
+  "MS SQL":             { Icon: SiSqlite,             color: "#003B57" },
+  "Git & GitHub":       { Icon: SiGithub,             color: "#ffffff" },
+  "Docker":             { Icon: SiDocker,             color: "#2496ED" },
+  "Postman":            { Icon: SiPostman,            color: "#FF6C37" },
+  "Maven":              { Icon: SiApachemaven,        color: "#C71A36" },
+  "Linux":              { Icon: SiLinux,              color: "#FCC624" },
+  "Figma":              { Icon: SiFigma,              color: "#F24E1E" },
+  "Canva":              { Icon: SiCanvas,             color: "#00C4CC" },
+  "C++ / OpenGL":       { Icon: SiOpengl,             color: "#5586A4" },
+};
 
 type Node = { name: string; note: string; level: number };
 type Category = {
@@ -87,17 +146,33 @@ const STATS = [
 
 /* A single skill tile inside the detail panel. */
 function SkillTile({ node, accent, index }: { node: Node; accent: string; index: number }) {
+  const skill = SKILL_ICONS[node.name];
   return (
     <motion.div
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.35, delay: index * 0.05 }}
-      className="group rounded-2xl border bg-card/40 p-5 transition-colors duration-300"
+      className="group rounded-2xl border bg-card/40 p-5 transition-all duration-300 hover:bg-card/70"
       style={{ borderColor: "rgba(255,255,255,0.08)" }}
     >
-      <div className="mb-2 flex items-center justify-between gap-3">
+      <div className="mb-3 flex items-center gap-3">
+        {skill ? (
+          <span
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl transition-transform duration-300 group-hover:scale-110"
+            style={{ background: `${skill.color}18`, border: `1px solid ${skill.color}30` }}
+          >
+            <skill.Icon size={22} style={{ color: skill.color }} />
+          </span>
+        ) : (
+          <span
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl font-mono text-[11px] font-bold"
+            style={{ background: `${accent}18`, border: `1px solid ${accent}30`, color: accent }}
+          >
+            {node.name.slice(0, 2).toUpperCase()}
+          </span>
+        )}
         <span
-          className="text-[16px] transition-colors duration-200 group-hover:[color:var(--tile-accent)]"
+          className="text-[15px] font-medium transition-colors duration-200 group-hover:[color:var(--tile-accent)]"
           style={{ ["--tile-accent" as string]: accent }}
         >
           {node.name}

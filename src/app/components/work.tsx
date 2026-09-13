@@ -9,6 +9,49 @@ import {
   EcommerceMock,
   AgroSenseMock,
 } from "./mockups";
+import {
+  SiSpringboot,
+  SiReact,
+  SiMysql,
+  SiTypescript,
+  SiFirebase,
+  SiVitest,
+  SiNestjs,
+  SiNextdotjs,
+  SiPostgresql,
+  SiDocker,
+  SiJsonwebtokens,
+  SiCloudinary,
+  SiCplusplus,
+  SiOpengl,
+  SiEspressif,
+  SiGithub,
+} from "react-icons/si";
+import { FaJava } from "react-icons/fa6";
+import { TbTestPipe } from "react-icons/tb";
+import { FiExternalLink } from "react-icons/fi";
+import type { IconType } from "react-icons";
+
+const TECH_ICONS: Record<string, { Icon: IconType; color: string }> = {
+  "Spring Boot":     { Icon: SiSpringboot,    color: "#6DB33F" },
+  "Java":            { Icon: FaJava,           color: "#F89820" },
+  "React":           { Icon: SiReact,          color: "#61DAFB" },
+  "MySQL":           { Icon: SiMysql,          color: "#4479A1" },
+  "TypeScript":      { Icon: SiTypescript,     color: "#3178C6" },
+  "Firebase":        { Icon: SiFirebase,       color: "#FFCA28" },
+  "Firestore":       { Icon: SiFirebase,       color: "#FFCA28" },
+  "Vitest":          { Icon: SiVitest,         color: "#6E9F18" },
+  "Playwright":      { Icon: TbTestPipe,       color: "#2EAD33" },
+  "NestJS":          { Icon: SiNestjs,         color: "#E0234E" },
+  "Next.js":         { Icon: SiNextdotjs,      color: "#ffffff" },
+  "PostgreSQL":      { Icon: SiPostgresql,     color: "#4169E1" },
+  "Docker":          { Icon: SiDocker,         color: "#2496ED" },
+  "JWT":             { Icon: SiJsonwebtokens,  color: "#FB015B" },
+  "Cloudinary":      { Icon: SiCloudinary,     color: "#3448C5" },
+  "C++":             { Icon: SiCplusplus,      color: "#00599C" },
+  "OpenGL":          { Icon: SiOpengl,         color: "#5586A4" },
+  "ESP32":           { Icon: SiEspressif,      color: "#E7352C" },
+};
 
 type Project = {
   num: string;
@@ -24,6 +67,7 @@ type Project = {
   };
   accent: string;
   Mock: (p: { accent: string }) => JSX.Element;
+  links?: { github?: string; live?: string };
 };
 
 const PROJECTS: Project[] = [
@@ -42,6 +86,7 @@ const PROJECTS: Project[] = [
     },
     accent: "var(--blue)",
     Mock: ServeSyncMock,
+    links: { github: "https://github.com/Byte-knight-team", live: "https://cravehouse.netlify.app/" },
   },
   {
     num: "02",
@@ -58,6 +103,7 @@ const PROJECTS: Project[] = [
     },
     accent: "var(--violet)",
     Mock: CineScopeMock,
+    links: { github: "https://github.com/AshenRandira/cinescope", live: "https://cinescope-f361c.web.app/" },
   },
   {
     num: "03",
@@ -74,6 +120,7 @@ const PROJECTS: Project[] = [
     },
     accent: "var(--lime)",
     Mock: PulseDockMock,
+    links: { github: "https://github.com/AshenRandira/pulsedock" },
   },
   {
     num: "04",
@@ -90,6 +137,7 @@ const PROJECTS: Project[] = [
     },
     accent: "var(--amber)",
     Mock: AgroSenseMock,
+    links: { github: "https://github.com/Fourth-X-Born/agro-sense-frontend", live: "https://agrosense-web.netlify.app/" },
   },
   {
     num: "05",
@@ -344,6 +392,35 @@ export function Work() {
                 <p className="max-w-lg text-[15px] leading-relaxed text-muted-foreground">
                   {p.outcome}
                 </p>
+                {/* GitHub / Live links */}
+                {p.links && (
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {p.links.github && (
+                      <a
+                        href={p.links.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1.5 rounded-full border px-3 py-1.5 font-mono text-[11px] transition-all duration-200 hover:scale-105"
+                        style={{ borderColor: p.accent, color: p.accent }}
+                      >
+                        <SiGithub size={12} />
+                        Source Code
+                      </a>
+                    )}
+                    {p.links.live && (
+                      <a
+                        href={p.links.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1.5 rounded-full border px-3 py-1.5 font-mono text-[11px] transition-all duration-200 hover:scale-105"
+                        style={{ borderColor: "var(--border)", color: "var(--foreground)" }}
+                      >
+                        <FiExternalLink size={12} />
+                        Live Demo
+                      </a>
+                    )}
+                  </div>
+                )}
               </div>
 
               <div className="flex shrink-0 flex-col items-start gap-3 md:items-end">
@@ -353,16 +430,25 @@ export function Work() {
                 >
                   {p.role}
                 </span>
-                <div className="flex flex-wrap gap-2">
-                  {p.tech.map((t) => (
-                    <span
-                      key={t}
-                      className="rounded-full border px-2.5 py-0.5 font-mono text-[10px] text-muted-foreground"
-                      style={{ borderColor: "var(--border)" }}
-                    >
-                      {t}
-                    </span>
-                  ))}
+                <div className="flex flex-wrap gap-1.5">
+                  {p.tech.map((t) => {
+                    const tech = TECH_ICONS[t];
+                    return (
+                      <span
+                        key={t}
+                        className="flex items-center gap-1.5 rounded-full border px-2.5 py-1 font-mono text-[10px] text-muted-foreground transition-colors duration-200 hover:text-foreground"
+                        style={{ borderColor: "var(--border)" }}
+                      >
+                        {tech && (
+                          <tech.Icon
+                            style={{ color: tech.color, flexShrink: 0 }}
+                            size={12}
+                          />
+                        )}
+                        {t}
+                      </span>
+                    );
+                  })}
                 </div>
               </div>
             </div>
