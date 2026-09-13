@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence, useInView } from "motion/react";
 import { Code2, Server, Database, Wrench, Palette } from "lucide-react";
 import {
@@ -187,10 +187,29 @@ export function Journey() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-10% 0px" });
   const [active, setActive] = useState(0);
+  const [hasUserInteracted, setHasUserInteracted] = useState(false);
   const current = CATEGORIES[active];
 
+  /* Automatic rotation timer (every 5s until user clicks/interacts) */
+  useEffect(() => {
+    if (hasUserInteracted) return;
+    const interval = setInterval(() => {
+      setActive((a) => (a + 1) % CATEGORIES.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [hasUserInteracted]);
+
+  const handleSelectCategory = (i: number) => {
+    setHasUserInteracted(true);
+    setActive(i);
+  };
+
   return (
-    <section id="journey" ref={ref} className="relative scroll-mt-28 overflow-hidden px-6 py-20 md:px-10 md:py-24">
+    <section 
+      id="journey" 
+      ref={ref} 
+      className="relative scroll-mt-28 overflow-hidden px-6 py-20 md:px-10 md:py-24"
+    >
       <div className="relative z-10 mx-auto max-w-[1400px]">
         {/* Header — centred */}
         <div className="mb-14 text-center">
@@ -251,7 +270,7 @@ export function Journey() {
               return (
                 <button
                   key={cat.title}
-                  onClick={() => setActive(i)}
+                  onClick={() => handleSelectCategory(i)}
                   type="button"
                   aria-label={cat.title}
                   aria-pressed={isActive}
@@ -284,7 +303,7 @@ export function Journey() {
                       {cat.title}
                     </span>
                     <span className="font-mono text-[10px] tracking-[0.14em] text-muted-foreground">
-                      {cat.nodes.length} SKILLS
+                      TECH STACK
                     </span>
                   </span>
                 </button>
@@ -297,7 +316,13 @@ export function Journey() {
             id="skills-detail-panel"
             aria-live="polite"
             className="min-h-[420px] rounded-3xl border bg-card/20 p-7 backdrop-blur-sm md:p-9"
-            style={{ borderColor: "rgba(255,255,255,0.08)", borderTop: `2px solid ${current.accent}` }}
+            style={{ 
+              borderLeftColor: "rgba(255,255,255,0.08)",
+              borderRightColor: "rgba(255,255,255,0.08)",
+              borderBottomColor: "rgba(255,255,255,0.08)",
+              borderTopColor: current.accent,
+              borderTopWidth: "2px",
+            }}
           >
             <AnimatePresence mode="wait">
               <motion.div
@@ -321,7 +346,7 @@ export function Journey() {
                     className="hidden shrink-0 rounded-full border px-3 py-1 font-mono text-[10px] tracking-[0.14em] sm:block"
                     style={{ borderColor: current.accent, color: current.accent }}
                   >
-                    {current.nodes.length} SKILLS
+                    TECH STACK
                   </span>
                 </div>
 

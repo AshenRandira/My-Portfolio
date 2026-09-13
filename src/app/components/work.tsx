@@ -194,6 +194,7 @@ function getCircularOffset(
 
 export function Work() {
   const [active, setActive] = useState(0);
+  const [hasUserInteracted, setHasUserInteracted] = useState(false);
   const [cardW, setCardW] = useState(420);
   const [spacing, setSpacing] = useState(220);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -215,25 +216,44 @@ export function Work() {
   }, []);
 
   /* Looping navigation ------------------------------------------------- */
-  const nav = (dir: 1 | -1) =>
+  const nav = (dir: 1 | -1, fromUser = false) => {
+    if (fromUser) setHasUserInteracted(true);
     setActive((a) => (a + dir + PROJECTS.length) % PROJECTS.length);
+  };
+
+  /* Automatic rotation timer (every 5s until user clicks/interacts) */
+  useEffect(() => {
+    if (hasUserInteracted) return;
+    const interval = setInterval(() => {
+      setActive((a) => (a + 1) % PROJECTS.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [hasUserInteracted]);
+
+  const selectProject = (i: number) => {
+    setHasUserInteracted(true);
+    setActive(i);
+  };
 
   const handleCarouselKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
     if (event.target !== event.currentTarget) return;
 
     if (event.key === "ArrowRight") {
       event.preventDefault();
-      nav(1);
+      nav(1, true);
     } else if (event.key === "ArrowLeft") {
       event.preventDefault();
-      nav(-1);
+      nav(-1, true);
     }
   };
 
   const p = PROJECTS[active];
 
   return (
-    <section id="work" className="relative scroll-mt-28 py-20 md:py-24">
+    <section 
+      id="work" 
+      className="relative scroll-mt-28 py-20 md:py-24"
+    >
       {/* ── Header ─────────────────────────────────────────────────── */}
       <div className="mx-auto mb-6 max-w-[1400px] px-6 md:px-10">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
@@ -327,13 +347,13 @@ export function Work() {
           dragElastic={0.18}
           dragSnapToOrigin
           onDragEnd={(_, info) => {
-            if (info.offset.x < -50 || info.velocity.x < -400) nav(1);
-            else if (info.offset.x > 50 || info.velocity.x > 400) nav(-1);
+            if (info.offset.x < -50 || info.velocity.x < -400) nav(1, true);
+            else if (info.offset.x > 50 || info.velocity.x > 400) nav(-1, true);
           }}
         />
 
         <button
-          onClick={() => nav(-1)}
+          onClick={() => nav(-1, true)}
           onMouseEnter={() => set({ variant: "button", label: "PREV" })}
           onMouseLeave={reset}
           className="absolute left-4 top-1/2 z-30 flex size-11 -translate-y-1/2 items-center justify-center rounded-full border bg-[rgba(11,12,16,0.82)] text-lg transition-transform duration-300 hover:scale-110 md:left-[calc(50%-17rem)]"
@@ -345,7 +365,7 @@ export function Work() {
         </button>
 
         <button
-          onClick={() => nav(1)}
+          onClick={() => nav(1, true)}
           onMouseEnter={() => set({ variant: "button", label: "NEXT" })}
           onMouseLeave={reset}
           className="absolute right-4 top-1/2 z-30 flex size-11 -translate-y-1/2 items-center justify-center rounded-full border bg-[rgba(11,12,16,0.82)] text-lg transition-transform duration-300 hover:scale-110 md:right-[calc(50%-17rem)]"
@@ -392,31 +412,34 @@ export function Work() {
                 <p className="max-w-lg text-[15px] leading-relaxed text-muted-foreground">
                   {p.outcome}
                 </p>
-                {/* GitHub / Live links */}
+                {/* GitHub / Live Action Buttons */}
                 {p.links && (
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {p.links.github && (
-                      <a
-                        href={p.links.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-1.5 rounded-full border px-3 py-1.5 font-mono text-[11px] transition-all duration-200 hover:scale-105"
-                        style={{ borderColor: p.accent, color: p.accent }}
-                      >
-                        <SiGithub size={12} />
-                        Source Code
-                      </a>
-                    )}
+                  <div className="mt-5 flex flex-wrap items-center gap-3">
                     {p.links.live && (
                       <a
                         href={p.links.live}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-1.5 rounded-full border px-3 py-1.5 font-mono text-[11px] transition-all duration-200 hover:scale-105"
-                        style={{ borderColor: "var(--border)", color: "var(--foreground)" }}
+                        className="group flex items-center gap-2 rounded-full px-5 py-2.5 font-mono text-[12px] font-bold tracking-wider shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl active:scale-95"
+                        style={{
+                          background: p.accent,
+                          color: "#0b0c10",
+                          boxShadow: `0 4px 20px -4px ${p.accent}80`,
+                        }}
                       >
-                        <FiExternalLink size={12} />
-                        Live Demo
+                        <FiExternalLink size={14} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                        <span>Live Demo</span>
+                      </a>
+                    )}
+                    {p.links.github && (
+                      <a
+                        href={p.links.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-5 py-2.5 font-mono text-[12px] font-semibold tracking-wider text-foreground backdrop-blur-md shadow-md transition-all duration-300 hover:scale-105 hover:border-white/40 hover:bg-white/20 active:scale-95"
+                      >
+                        <SiGithub size={14} className="transition-transform duration-300 group-hover:scale-110" />
+                        <span>Source Code</span>
                       </a>
                     )}
                   </div>
@@ -507,7 +530,7 @@ export function Work() {
             {PROJECTS.map((proj, i) => (
               <button
                 key={proj.title}
-                onClick={() => setActive(i)}
+                onClick={() => selectProject(i)}
                 type="button"
                 className="rounded-full transition-all duration-300"
                 style={{
