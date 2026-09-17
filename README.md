@@ -1,47 +1,61 @@
 
-  # Interactive Portfolio
+# Ashen Randira | Personal Portfolio
 
-  An interactive developer portfolio built with React, TypeScript, Vite, Tailwind CSS, and Motion.
+My personal portfolio website, showcasing selected software projects, technical skills, professional experience, and community leadership.
 
-  ## Requirements
+## About Me
 
-  - Node.js 18 or newer
-  - npm
+- **Name:** Ashen Randira
+- **Role:** Full-Stack & Backend Developer
+- **Location:** Colombo, Sri Lanka
+- **Education:** B.Sc. (Hons) in Information Technology, University of Moratuwa
+- **Focus:** Full-stack systems, backend architecture, REST APIs, databases, cloud deployment, and polished user interfaces
 
-  ## Local Development
+## Featured Work
 
-  Install dependencies:
+The portfolio includes projects such as:
 
-  ```bash
-  npm install
-  ```
+- **PulseDock:** Self-hosted uptime and endpoint monitoring
+- **Cinescope:** Movie and TV discovery platform
+- **CraveHouse:** Full-stack restaurant management system
+- **AgroSense:** Agricultural technology platform
+- **ServeSync:** Full-stack service management application
 
-  Start the development server:
+## Technology
 
-  ```bash
-  npm run dev
-  ```
+React, TypeScript, Next.js, Tailwind CSS, Java, Spring Boot, NestJS, Node.js, Python, C++, MySQL, PostgreSQL, MongoDB, Firebase, Docker, Git, and Linux.
 
-  Create a production build:
+## Contact
 
-  ```bash
-  npm run build
-  ```
+- **Email:** [randiraofficial@gmail.com](mailto:randiraofficial@gmail.com)
+- **LinkedIn:** [linkedin.com/in/ashen-randira](https://www.linkedin.com/in/ashen-randira-11626a30a/)
+- **GitHub:** [github.com/AshenRandira](https://github.com/AshenRandira)
 
-  The production files are generated in `dist/`.
+## Local Development
 
-  ## Deploying to Vercel
+Requirements: Node.js 18 or newer and npm.
 
-  Import the repository into Vercel. Use the following project settings:
+```bash
+npm install
+npm run dev
+```
 
-  - Framework preset: `Vite`
-  - Install command: `npm install`
-  - Build command: `npm run build`
-  - Output directory: `dist`
+Create a production build with:
 
-  No environment variables are required for the current build. Future pushes to the connected repository will create new Vercel deployments automatically.
+```bash
+npm run build
+```
 
-  ## Design Source
+The production files are generated in `dist/`.
 
-  The original design is available in [Figma](https://www.figma.com/design/n5AhnNRsmzzG5W5YEG6mTN/Interactive-Portfolio-Creation).
+## Deploying to Vercel
+
+Import the repository into Vercel with these settings:
+
+- **Framework preset:** `Vite`
+- **Install command:** `npm install`
+- **Build command:** `npm run build`
+- **Output directory:** `dist`
+
+No environment variables are required for the current build. Future pushes to the connected repository will create new Vercel deployments automatically.
   
