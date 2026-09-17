@@ -8,4 +8,15 @@
   Run `npm i` to install the dependencies.
 
   Run `npm run dev` to start the development server.
+
+  ## Deploying to Vercel
+
+  Import this repository in Vercel and use these project settings:
+
+  - Framework preset: `Vite`
+  - Build command: `npm run build`
+  - Output directory: `dist`
+  - Install command: `npm install`
+
+  No environment variables are required for the current build.
   
